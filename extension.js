@@ -23,7 +23,7 @@ function enable() {
     ccMenu = new ContestCountdownButton(settings);
 
     main.panel.addToStatusArea(
-        "cc-indicator",
+        "ccai-indicator",
         ccMenu,
         settings.get_int("extension-index"),
         settings.get_string("extension-place")
