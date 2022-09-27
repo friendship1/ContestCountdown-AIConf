@@ -64,7 +64,43 @@ let codeforces = function(session) {
     })
 }
 
-const allScrapers = [codeforces];
+let aiconfs = function(session) {
+    const AICONF_API_URL = "http://www.dgrang.com/cvlab/aiconf.py";
+    return new Promise((resolve, reject) => {
+        let message = Soup.Message.new("GET", AICONF_API_URL);
+        log.info(message)
+        session.queue_message(message, (_, message) => {
+
+            let response = JSON.parse(message.response_body.data);
+            if (!response || response.status != "OK") {
+                reject();
+                return;
+            }
+
+            let result = [];
+            for (let entry of response.result)
+                if (entry.phase == "BEFORE")
+                    result.push(new Contest(
+                        entry.id,
+                        entry.name,
+                        "AIConferences",
+                        new Date(entry.startTimeSeconds * 1000),
+                        duration = entry.durationSeconds)
+                    );
+
+            log.info("dgrang.com download succesful");
+            // log.info("codeforces processed response", JSON.stringify(result, null, 2)); 
+            resolve(result);
+        }
+        )
+    }).catch((e) => {
+        log.error("Failed to get aiconf contests", e);
+        reject();
+    })
+}
+
+// const allScrapers = [codeforces, aiconfs];
+const allScrapers = [aiconfs];
 
 var DownloadContests = () => {
     let session = new Soup.SessionAsync();
