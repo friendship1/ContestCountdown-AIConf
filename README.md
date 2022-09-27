@@ -1,6 +1,8 @@
 # FORKED FROM rag-hav/ContestCountdown
-Most of the code is borrowed from the following link:
+**Most of the code is borrowed from the following link**
 https://github.com/rag-hav/ContestCountdown
+
+Both gnome-extension can be used simultaneously
 # Contest Countdown
 
 Gnome extension that shows a countdown to the next codeforces contest in the top bar of gnome (panel). 
