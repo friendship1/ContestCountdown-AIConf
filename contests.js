@@ -21,7 +21,7 @@ var Contests = GObject.registerClass(
     class Contests extends GObject.Object {
         _init() {
             super._init();
-            let cacheFilePath = GLib.build_filenamev([GLib.get_user_cache_dir(), 'ContestCountdown', 'contests.json']);
+            let cacheFilePath = GLib.build_filenamev([GLib.get_user_cache_dir(), 'ContestCountdownAI', 'contests.json']);
             this.cacheFile = Gio.File.new_for_path(cacheFilePath);
 
             this.allContests = [];
