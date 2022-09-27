@@ -1,10 +1,10 @@
 {
-    "name": "Contest Countdown",
-    "description": "Countdown to next codeforces contest. This extension uses the API of codeforces.com to get the list of all upcoming contests. A countdown to the closest upcoming contest (that you are participating in) is shown in the panel, which can be clicked on to view the list of all upcoming contests.",
-    "uuid": "contestcountdown@raghav",
-    "settings-schema": "org.gnome.shell.extensions.contest-countdown",
-    "version": 3,
-    "url": "https://github.com/rag-hav/contestcountdown",
+    "name": "Contest Countdown AI Conf",
+    "description": "(forked from https://github.com/rag-hav/ContestCountdown) Countdown to next AI conferences. This extension uses my private server API of dgrang.com to get the list of all upcoming AI conferences, which is parseing data from https://aideadlin.es/?sub=ML,CV,CG,NLP,RO,SP,DM",
+    "uuid": "contestcountdown-aiconf@jwwoo",
+    "settings-schema": "org.gnome.shell.extensions.contest-countdown-aiconf",
+    "version": 1,
+    "url": "https://github.com/friendship1/ContestCountdown-AIConf",
     "shell-version": [
         "40",
         "42"
