@@ -1,6 +1,6 @@
 #!/bin/sh
 
-EXTENSION_DIR="$HOME/.local/share/gnome-shell/extensions/contestcountdown@raghav/"
+EXTENSION_DIR="$HOME/.local/share/gnome-shell/extensions/contestcountdown-aiconf@jwwoo/"
 GNOME_VERSION="$( gnome-shell --version | cut -f '3' -d ' ' | cut -f '1' -d '.')" 
 
 echo "Installing in $EXTENSION_DIR"
@@ -16,7 +16,7 @@ fi
 
 # clone from the repository
 echo "Cloning from repository..."
-git clone https://github.com/rag-hav/ContestCountdown --branch master --single-branch "$EXTENSION_DIR" || (printf "\nCouldn't clone repository\n" && exit 1)
+git clone https://github.com/friendship1/ContestCountdown-AIConf --branch master --single-branch "$EXTENSION_DIR" || (printf "\nCouldn't clone repository\n" && exit 1)
 
 
 if (( GNOME_VERSION < 40 )); then
@@ -27,7 +27,7 @@ fi
 
 # enable the extension
 echo "Enabling extension..."
-gnome-extensions enable contestcountdown@raghav || (printf "\nCouldn't enable extension" && exit 1)
+gnome-extensions enable contestcountdown-aiconf@jwwoo || (printf "\nCouldn't enable extension" && exit 1)
 
 # done
 echo "Installation successful"
