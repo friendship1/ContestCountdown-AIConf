@@ -182,15 +182,20 @@ var ContestDetails = GObject.registerClass(
             });
             nameLabel.clutter_text.line_wrap = true;
 
-            let hh = Math.floor(contest.duration / 3600);
-            let mm = Math.floor((contest.duration % 3600) / 60);
-
+            // let hh = Math.floor(contest.duration / 3600);
+            // let mm = Math.floor((contest.duration % 3600) / 60);
+            
+            // var details =
+            //     `Date\t\t:  ${contest.date.toLocaleFormat(
+            //         "%A %d %B %Y"
+            //     )} ` +
+            //     `\nTime\t\t:  ${contest.date.toLocaleFormat("%r")} ` +
+            //     `\nDuration\t:  ${hh} hours ${mm} minutes`;
             var details =
                 `Date\t\t:  ${contest.date.toLocaleFormat(
                     "%A %d %B %Y"
                 )} ` +
-                `\nTime\t\t:  ${contest.date.toLocaleFormat("%r")} ` +
-                `\nDuration\t:  ${hh} hours ${mm} minutes`;
+                `\nTime\t\t:  ${contest.date.toLocaleFormat("%r")} `;
 
             var detailsLabel = new St.Label({
                 text: details,
