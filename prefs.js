@@ -158,6 +158,20 @@ function buildPrefsWidget() {
     index++;
     prefsWidget.attach(notifyBeforeInfoLabel, 0, index, 2, 1);
 
+    /* selected Conf list */
+    let selectedConfLabel = new Gtk.Label({
+        label: 'Selected Conferences',
+        halign: Gtk.Align.START,
+        visible: true
+    });
+    let selectedConfLabelEntry = new Gtk.Entry({
+        buffer: new Gtk.EntryBuffer(),
+        activates_default: true,
+    });
+
+    index++;
+    prefsWidget.attach(selectedConfLabel, 0, index, 1, 1);
+    prefsWidget.attach(selectedConfLabelEntry, 1, index, 1, 1);
 
     // https://docs.gtk.org/gio/method.Settings.bind.html
     // settings.bind('settings-key', object, 'property', Gio.SettingsBindFlags.DEFAULT);
@@ -166,6 +180,7 @@ function buildPrefsWidget() {
     settings.bind('right-padding', rightPaddingEntry, 'value', Gio.SettingsBindFlags.DEFAULT);
     settings.bind('show-seconds', showSecondsSwitch, 'active', Gio.SettingsBindFlags.DEFAULT);
     settings.bind('notify-before', notifyBeforeEntry, 'value', Gio.SettingsBindFlags.DEFAULT);
+    settings.bind('selected-confs', selectedConfLabelEntry.buffer, 'text', Gio.SettingsBindFlags.DEFAULT);
 
     extensionPlaceComboBox.connect('changed', function(widget) {
         settings.set_string('extension-place', options[widget.get_active()]);

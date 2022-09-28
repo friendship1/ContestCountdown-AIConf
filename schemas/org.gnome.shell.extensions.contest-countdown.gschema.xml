@@ -19,5 +19,8 @@
         <key name="notify-before" type="i">
             <default>60</default>
         </key>
+        <key name="selected-confs" type='s'>
+            <default>'CVPR,ICCV,ECCV'</default>
+        </key>
     </schema>
 </schemalist>

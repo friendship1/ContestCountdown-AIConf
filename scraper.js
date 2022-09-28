@@ -66,6 +66,11 @@ let codeforces = function(session) {
 
 let aiconfs = function(session) {
     const AICONF_API_URL = "http://www.dgrang.com/cvlab/aiconf.py";
+    // select from setting
+    let settings = ExtensionUtils.getSettings()
+    let selectedConfText = settings.get_string("selected-confs")
+    const confArray = selectedConfText.split(",");
+    
     return new Promise((resolve, reject) => {
         let message = Soup.Message.new("GET", AICONF_API_URL);
         log.info(message)
@@ -85,8 +90,9 @@ let aiconfs = function(session) {
                         entry.name,
                         "AIConferences",
                         new Date(entry.startTimeSeconds * 1000),
-                        duration = entry.durationSeconds)
-                    );
+                        duration = entry.durationSeconds,
+                        participating = confArray.includes(entry.name),
+                    ));
 
             log.info("dgrang.com download succesful");
             // log.info("codeforces processed response", JSON.stringify(result, null, 2)); 
